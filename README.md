@@ -22,7 +22,7 @@ we get the time complexity in the following way:
 
 We start by analyzing the outer loop, which divides the given array into smaller chunks. This operation takes $O(log n)$ time complexity. Next, we go through the inner loop, which iterates over the $n$ elements which takes $O(n)$ time complexity. Then the while loop takes another $O(n)$ time complexity to move the element from the righ to left by iterating through every element. The total time complexity of the algorithm comes to $\Theta(n^2 log n)$.
 
-I was able to remove the seperate array value I used earlier for merging the elements. Instead I am moving the smallest element found to the left by iterating through the array.
+I was able to remove the seperate array value I used earlier for merging the elements. Instead I am moving the smallest element found to the left by iterating through the array. I found the lecture slides with the recursive implmentation of mergesort helful for me to do the in place mergesort.
 
 References used:
 
