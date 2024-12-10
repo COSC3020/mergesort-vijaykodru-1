@@ -20,7 +20,9 @@ ANSWER:
 
 we get the time complexity in the following way:
 
-We start by analyzing the outer loop, which divides the given array into smaller chunks. This operation takes $O(log n)$ time complexity. Next, we go through the inner loop, which iterates over the $n$ elements and performs the merging operation in $O(n)$ time per iteration. The total time complexity of the algorithm is $\Theta(n log n)$. As the array size increases, the time it takes to sort the array using merge sort increases logarithmically.
+We start by analyzing the outer loop, which divides the given array into smaller chunks. This operation takes $O(log n)$ time complexity. Next, we go through the inner loop, which iterates over the $n$ elements which takes $O(n)$ time complexity. Then the while loop takes another $O(n)$ time complexity to move the element from the righ to left by iterating through every element. The total time complexity of the algorithm comes to $\Theta(n^2 log n)$.
+
+I was able to remove the seperate array value I used earlier for merging the elements. Instead I am moving the smallest element found to the left by iterating through the array.
 
 References used:
 
@@ -38,7 +40,5 @@ I wrote everything without looking at my previous repo. However I needed help to
         merged.push(array[rightStart++]);
     }
     
-And the coming to the runtime complexity, looks like I made a mistake in my previous one saying that the runtime is $\Theta(n^2logn)$ which is not correct according to the way I implemented.
-
 
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice

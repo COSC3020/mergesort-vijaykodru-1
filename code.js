@@ -12,33 +12,28 @@ function mergesort(array) {
         for (let start = 0; start < length; start += 2 * size) {
             let mid = Math.min(start + size - 1, length - 1);
             let end = Math.min(start + 2 * size - 1, length - 1);
-    
+
+            // removed the seperate array value
             let leftStart = start;
             let rightStart = mid + 1;
-            let merged = [];
-    
-            // Merge the two subarrays into merged[]
+
+            // Use a temporary pointer to manage swaps in place
             while (leftStart <= mid && rightStart <= end) {
                 if (array[leftStart] <= array[rightStart]) {
-                    merged.push(array[leftStart++]);
+                    leftStart++;
                 } else {
-                    merged.push(array[rightStart++]);
+                    // Move the smaller element from the right segment into the left segment
+                    let temp = array[rightStart];
+                    for (let k = rightStart; k > leftStart; k--) {
+                        array[k] = array[k - 1];
+                    }
+                    array[leftStart] = temp;
+
+                    // Update pointers
+                    leftStart++;
+                    mid++;
+                    rightStart++;
                 }
-            }
-    
-            // If there are remaining elements in the left half
-            while (leftStart <= mid) {
-                merged.push(array[leftStart++]);
-            }
-    
-            // If there are remaining elements in the right half
-            while (rightStart <= end) {
-                merged.push(array[rightStart++]);
-            }
-    
-            // Copy the merged result back to the original array
-            for (let k = 0; k < merged.length; k++) {
-                array[start + k] = merged[k];
             }
         }
     }
